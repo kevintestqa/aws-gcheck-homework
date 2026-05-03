@@ -30,7 +30,7 @@ resource "aws_api_gateway_integration" "node_integration" {
   resource_id             = aws_api_gateway_resource.node_resource.id
   http_method             = aws_api_gateway_method.node_method.http_method
   type                    = "AWS_PROXY"
-  integration_http_method = "POST"
+  integration_http_method = "POST" //Required if TYPE is equal to AWS_PROXY.  Can ONLY pass in POST for lambda
   uri                     = aws_lambda_function.chewbacca_node_lambda.invoke_arn
 }
 
